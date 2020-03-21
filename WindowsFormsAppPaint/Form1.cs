@@ -148,6 +148,7 @@ namespace WindowsFormsAppPaint
                 Bitmap bmp = new Bitmap(panel1.Width, panel1.Height);
                 panel1.DrawToBitmap(bmp, new Rectangle(0, 0, panel1.Width, panel1.Height));
                 bmp.Save(DestinationFileName);
+                MessageBox.Show("Đã lưu " + DestinationFileName);
                 //fs.Close();
 
             }

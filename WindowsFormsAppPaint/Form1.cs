@@ -17,7 +17,7 @@ namespace WindowsFormsAppPaint
         private Shapes DrawingShapes = new Shapes();    //Stores all the drawing data
         private bool IsPainting = false;                //Is the mouse currently down (PAINTING)
         private Point LastPos = new Point(0, 0);        //Last Position, used to cut down on repative data.
-        private Color CurrentColour = Color.Black;      //Deafult Colour
+        private Color CurrentColour = Color.Blue;      //Deafult Colour
         private float CurrentWidth = 3;                //Deafult Pen width
         private int ShapeNum = 0;                       //record the shapes so they can be drawn sepratley.
         private Point MouseLoc = new Point(0, 0);       //Record the mouse position
@@ -34,6 +34,7 @@ namespace WindowsFormsAppPaint
         private void panel1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             //set it to mouse down, illustrate the shape being drawn and reset the last position
+            
             IsPainting = true;
             ShapeNum++;
             LastPos = new Point(0, 0);
@@ -92,6 +93,7 @@ namespace WindowsFormsAppPaint
                     //get rid of the pen when finished
                     p.Dispose();
                 }
+
             }
             //If mouse is on the panel, draw the mouse
             if (IsMouseing)
@@ -105,6 +107,7 @@ namespace WindowsFormsAppPaint
             //Hide the mouse cursor and tell the re-drawing function to draw the mouse
             Cursor.Hide();
             IsMouseing = true;
+       
         }
 
         private void panel1_MouseLeave(object sender, EventArgs e)
@@ -116,6 +119,7 @@ namespace WindowsFormsAppPaint
         }
         private void Form1_Load(object sender,EventArgs e)
         {
+            
 
         }
 //---------------------------------------------------------------------------------------        
@@ -125,6 +129,7 @@ namespace WindowsFormsAppPaint
         {
             DrawingShapes = new Shapes();
             panel1.Refresh();
+            
         }
         //------------------------------------------------------------------------------------------
         //lưu lại
@@ -159,6 +164,8 @@ namespace WindowsFormsAppPaint
         {
 
         }
+
+        
     }
     //---------------------------------------------------------------------------------------------------------
     public class Shapes

@@ -23,12 +23,14 @@ namespace WindowsFormsAppPaint
         private Point MouseLoc = new Point(0, 0);       //Record the mouse position
         private bool IsMouseing = false;
         public String DestinationFileName;
+        
         //Draw the mouse?
         public Form1()
         {
             InitializeComponent();
             //Set Double Buffering
             panel1.GetType().GetMethod("SetStyle", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(panel1, new object[] { System.Windows.Forms.ControlStyles.UserPaint | System.Windows.Forms.ControlStyles.AllPaintingInWmPaint | System.Windows.Forms.ControlStyles.DoubleBuffer, true });
+            panel1.Cursor = CreateCursor((Bitmap)imageList1.Images[0], new Size(20, 20));
         }
         //----------------------------------------------------------------------------------------
         private void panel1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -122,6 +124,14 @@ namespace WindowsFormsAppPaint
             
 
         }
+
+        public static Cursor CreateCursor(Bitmap bm,Size size)
+        {
+            bm = new Bitmap(bm, size);
+            bm.MakeTransparent();
+            return new Cursor(bm.GetHicon());
+        }
+
 //---------------------------------------------------------------------------------------        
 //kí lại
 //---------------------------------------------------------------------------------------

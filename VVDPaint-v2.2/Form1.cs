@@ -162,9 +162,9 @@ namespace WindowsFormsAppPaint
 #endif
                 panel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 Bitmap bmp = new Bitmap(panel1.Width, panel1.Height);
-                panel1.DrawToBitmap(bmp, new Rectangle(1, 10, panel1.Width  , panel1.Height ));
+                panel1.DrawToBitmap(bmp, new Rectangle(0,0, panel1.Width  , panel1.Height ));
                 bmp.Save(DestinationFileName);
-                //fs.Close();
+                //Close();
                 System.Windows.Forms.Application.Exit();
             }
         }
